@@ -1,0 +1,31 @@
+<section class="menu container mx-auto py-8">
+    <h1 class="text-xl font-bold mb-8">All Pizzas</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-16 gap-x-12">
+      <% pizzas.forEach(function(pizza){ %>
+        <div class="w-full md:w-64">
+          <input type="hidden" value="<%= pizza._id %>">
+          <img class='h-40 mb-4 mx-auto' src="/images/<%= pizza.image %>" alt="">
+          <div class="text-center">
+            <h2 class="mb-4 text-lg"><%= pizza.name %></h2>
+            <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= pizza.size %></span>
+            <div class="flex items-center justify-around mt-6">
+              <span class="font-bold text-lg">₹<%= pizza.price %></span>
+              
+              <!-- <button class="add-to-cart px-6 py-1 px-6 rounded-full flex items-center font-bold"">ADD</button> -->
+
+              <!-- <a onclick="" class="delete bg-green-500 hover:bg-red-700 focus:outline-none py-1 px-6 rounded-full flex items-center font-bold" data-id=<%= pizza._id %> >
+                <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+              </a> -->
+
+              <button data-pizza = "<%=  pizza._id %>" class="delete bg-red-500 hover:bg-red-700 focus:outline-none py-1 px-6 rounded-full flex items-center font-bold" onclick="">
+                  <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+              </button>
+                <!-- <button data-id = "<%= pizza._id %>" class="bg-green-500 hover:bg-red-700 focus:outline-none py-1 px-6 rounded-full flex items-center font-bold delete" onclick="">
+                  <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+                </button> -->
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </section>
